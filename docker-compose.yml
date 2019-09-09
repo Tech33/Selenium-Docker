@@ -40,7 +40,7 @@ services:
         - selenium-hub
         
     saurabh-module:
-      image: skdocker/selenium-docker
+      image: kakkar33/selenium-docker
       depends_on:
         - chromenode
         - firefoxnode

@@ -11,7 +11,8 @@ ADD HybridFramework-0.0.1-SNAPSHOT-jar-with-dependencies.jar HybridFramework-0.0
 ADD HybridFramework-0.0.1-SNAPSHOT.jar HybridFramework-0.0.1-SNAPSHOT.jar
 
 # ADD health check script
-ADD healthcheck.sh                      healthcheck.sh
+# ADD healthcheck.sh                      healthcheck.sh
+RUN wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=11LTnb9ScVMj8sP1MfOpqXLyXLzOp8RYt' -O healthcheck.sh
 
 # in case of any other dependency like .csv / .json / .xls
 # please ADD that as well

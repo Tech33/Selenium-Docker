@@ -1,0 +1,15 @@
+docker build -t=kakkar33/selenium-docker .
+docker run -it --entrypoint=/bin/sh skdocker/selenium-docker
+java -jar HybridFramework-0.0.1-SNAPSHOT-jar-with-dependencies.jar "192.168.1.17:4448" "testng_surefire_8.xml" "CHROME"
+
+-v c:/Users/kakka/Documents/output:/udemy/RESULT_LOG
+
+docker run -it --entrypoint=/bin/sh -v /c/Users/kakka/output:/usr/share/udemy/RESULT_LOG skdocker/selenium-docker
+
+docker run -e HUB_HOST=192.168.1.17:4448 -e TESTNG_FILE=testng_surefire_8.xml -e BROWSER=CHROME skdocker/selenium-docker
+
+mvn clean package -DHUB_HOST="192.168.1.17:4448" -DTESTNG_FILE="testng_surefire_8.xml" -DBROWSER="CHROME"
+
+java -jar HybridFramework-0.0.1-SNAPSHOT-jar-with-dependencies.jar $HUB_HOST $TESTNG_FILE $BROWSER
+
+docker run -p 8080:8080 -p 50000:50000 -v /c/Jenkins:/var/jenkins_home jenkins/jenkins
